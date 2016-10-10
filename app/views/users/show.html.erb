@@ -1,0 +1,30 @@
+<%#=render_messages%>
+<%= link_to "Users", users_url %> > <%= @user.username %>
+
+<div class="profile">
+  <h2><%=@user.username%>'s Profile</h2>
+  <div class="profile-section">
+
+    <%# @user.comments.each do |comment| %>
+    <p>
+      <%#=h(comment.body).html_safe%>
+    </p>
+    <%# end %>
+    <%#= link_to "New Comment", new_user_goal_url(@user) %>
+    <%#= render "shared/comment_form" %>
+  </div>
+
+  <div class="profile-section">
+    <h3><%=@user.username%>'s Goals</h3>
+    <%= link_to "New Goal", new_user_goal_url(@user) %> / <%=
+        link_to "My Cheers!", new_user_goal_url(@user) %>
+
+    <ul>
+      <% @user.goals.each do |goal| %>
+        <% if goal.private && current_user != goal.user %>
+          <%= render 'shared/goal_item', goal: goal %>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

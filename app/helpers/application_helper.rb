@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def render_errors
-    return '' if flash[:errors].empty?
+    return '' unless flash[:errors]
     html = flash[:errors].join('</li><li>')
     "<ul><li>#{html}</li></ul>".html_safe
   end

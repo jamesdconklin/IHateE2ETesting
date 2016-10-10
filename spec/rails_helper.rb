@@ -73,3 +73,14 @@ end
 def sign_out!
   click_link 'Sign Out'
 end
+
+def new_goal(options)
+  fill_in "Title", with: options[:title]
+  fill_in "Details", with: options[:details]
+  choose "Private" if options[:private]
+  choose "Completed" if options[:completed]
+  click_button "New Goal"
+
+
+
+end
