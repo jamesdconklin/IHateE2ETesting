@@ -1,6 +1,6 @@
-<h1>Sign Up!</h1>
+<h1>Sign In!</h1>
 
-<form action="<%=users_url %>" method="post">
+<form action="<%=session_url %>" method="post">
   <%= csrf_token %>
 
   <label>Username
@@ -11,5 +11,5 @@
   <input type="password" name="user[password]" value="">
   </label>
   <br>
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Sign In">
 </form>

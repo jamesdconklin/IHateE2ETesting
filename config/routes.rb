@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users, except: [:destroy, :edit, :patch]
+  resources :users, except: [:destroy, :edit, :patch] do
+    resources :goals, only: [:new, :create]
+  end
+  resources :goals, only: [:destroy, :show, :edit, :patch]
+  resource :session , only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -8,6 +8,19 @@
 </head>
 <body>
 
+<header>
+Welcome, <%=current_user ? current_user.username : "guest" %>
+<br>
+<% if current_user %>
+  <%= link_to "Sign Out", session_url, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_url %> /
+  <%= link_to "Sign In", new_session_url %>
+<% end %>
+</header>
+
+<%= render_errors %>
+
 <%= yield %>
 
 </body>
